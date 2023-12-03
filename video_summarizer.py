@@ -44,14 +44,23 @@ def summarize_transcript(transcript):
     return summary
 
 def summarize_yt_video(url):
-    blob = extract_audio(url)
-    transcript = transcribe_audio(str(blob.path))
-    summary = summarize_transcript(transcript)
-    return summary
+    try:
+        blob = extract_audio(url)
+        transcript = transcribe_audio(str(blob.path))
+        summary = summarize_transcript(transcript)
+
+        if os.path.exists(str(blob.path)):
+            os.remove(str(blob.path))
+
+        return summary
+    except:
+        return "An error occured. Ensure that you've submitted a valid URL."
 
 st.title('YouTube Video Summarizer')
 st.text("By Kevin Geertjens")
+
 st.subheader("Generate a summary of any YouTube video you want.")
+st.markdown("Enter a URL to any YouTube video below, and press 'summarize' to generate a summary. The app will extract the audio, transcribe it, and summarize it, then display the summary at the bottom of this page.")
 
 url = st.text_input("Video URL")
 clicked = st.button("Summarize")
