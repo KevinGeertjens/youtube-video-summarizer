@@ -227,7 +227,7 @@ mypy-extensions==0.4.3
 nltk==3.6.5
 noisereduce==3.0.0
 #nose @ file:///tmp/build/80754af9/nose_1606773131901/work
-notebook @ file:///C:/ci/notebook_1635393701545/work
+#notebook @ file:///C:/ci/notebook_1635393701545/work
 numba==0.58.0
 #numexpr @ file:///C:/ci/numexpr_1618856728739/work
 numpy==1.25.2
