@@ -53,8 +53,8 @@ def summarize_yt_video(url):
             os.remove(str(blob.path))
 
         return summary
-    except:
-        return "An error occured. Ensure that you've submitted a valid URL."
+    except Exception as error:
+        return "An error occured:" + str(error)
 
 st.title('YouTube Video Summarizer')
 st.text("By Kevin Geertjens")
